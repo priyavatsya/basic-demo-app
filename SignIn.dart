@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../dashboard/Dashboard.dart';
+import '../signup/SignUp.dart';
 import 'SocialButton.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -92,6 +93,14 @@ class _SignInScreenState extends State<SignInScreen> {
                   }
                 },
               ),
+              SizedBox(height: 20),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: MaterialButton(
+                  onPressed: () {},
+                  child: Text('Forgot Password?'),
+                ),
+              ),
               Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -107,11 +116,19 @@ class _SignInScreenState extends State<SignInScreen> {
                 ],
               ),
               SizedBox(height: 20),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: MaterialButton(
-                  onPressed: () {},
-                  child: Text('Forgot Password?'),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUpScreen()),
+                  );
+                },
+                child: Text(
+                  'Create an account',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
               ),
             ],
